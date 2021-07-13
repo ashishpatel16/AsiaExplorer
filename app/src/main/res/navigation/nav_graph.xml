@@ -18,5 +18,9 @@
         android:id="@+id/countryDetailFragment"
         android:name="com.ashish.asiaexplorer.ui.CountryDetailFragment"
         android:label="About Country"
-        tools:layout="@layout/fragment_country_detail" />
+        tools:layout="@layout/fragment_country_detail" >
+        <argument
+            android:name="CountryObject"
+            app:argType="com.ashish.asiaexplorer.data.Country" />
+    </fragment>
 </navigation>

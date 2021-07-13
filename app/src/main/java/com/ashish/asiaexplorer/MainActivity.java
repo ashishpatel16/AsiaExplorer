@@ -3,6 +3,7 @@ package com.ashish.asiaexplorer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 
@@ -36,10 +37,16 @@ public class MainActivity extends AppCompatActivity {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.my_nav_host_fragment);
         mNavController = navHostFragment.getNavController();
 
+        NavigationUI.setupActionBarWithNavController(this,mNavController);
 
 
 
         // mNavController.navigate(R.id.action_homeFragment_to_countryDetailFragment);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        return mNavController.navigateUp();
     }
 }
 

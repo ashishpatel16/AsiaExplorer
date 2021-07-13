@@ -1,6 +1,7 @@
 package com.ashish.asiaexplorer.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,10 +44,12 @@ public class CountryRecyclerViewAdapter extends RecyclerView.Adapter<CountryRecy
         holder.mCoutry.setText(mList.get(position).getName());
         holder.mPopulation.setText(""+mList.get(position).getPopulation());
 
-        holder.btnMore.setOnClickListener(new View.OnClickListener() {
+        holder.mLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               navController.navigate(R.id.action_homeFragment_to_countryDetailFragment);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("CountryObject",mList.get(position));
+                navController.navigate(R.id.action_homeFragment_to_countryDetailFragment,bundle);
             }
         });
 
@@ -67,6 +71,7 @@ public class CountryRecyclerViewAdapter extends RecyclerView.Adapter<CountryRecy
         ImageView mFlagImageView;
         TextView mCoutry,mPopulation;
         AppCompatImageButton btnMore;
+        ConstraintLayout mLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,7 +80,7 @@ public class CountryRecyclerViewAdapter extends RecyclerView.Adapter<CountryRecy
             mCoutry = itemView.findViewById(R.id.tv_country);
             mPopulation = itemView.findViewById(R.id.tv_population);
             btnMore = itemView.findViewById(R.id.btn_view_more);
-
+            mLayout = itemView.findViewById(R.id.row_layout);
         }
     }
 }
