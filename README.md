@@ -21,4 +21,4 @@ Android App to fetch a consume a REST api and cache with Room Database.
 
 # Screenshots
 
-
+<img src="https://user-images.githubusercontent.com/59373024/125453840-624149e4-02e5-4f70-840b-5f95c610205b.jpg" width="200"> <img src="https://user-images.githubusercontent.com/59373024/125453885-1443f87b-f4ad-4df7-b297-9da2de8a7ab9.jpg" width="200">
