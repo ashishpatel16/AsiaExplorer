@@ -1,5 +1,5 @@
 # AsiaExplorer
-Android App to fetch a consume a REST api and cache with Room Database. 
+Android App to consume a REST api (https://restcountries.eu/) and cache data using Room Database. 
 
 ---
 # Features 
