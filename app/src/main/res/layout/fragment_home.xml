@@ -5,7 +5,8 @@
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HomeFragment">
+    tools:context=".ui.HomeFragment"
+    android:id="@+id/frme">
 
     <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"

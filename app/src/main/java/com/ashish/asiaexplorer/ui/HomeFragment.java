@@ -44,19 +44,16 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home, container, false);
-        countries = new ArrayList();
-        initRecyclerView();
+
+        countries = new ArrayList<>();
 
         NavHostFragment navHostFragment = (NavHostFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.my_nav_host_fragment);
         mNavController = navHostFragment.getNavController();
-        countryRepository = new CountryRepository(getActivity().getApplication());
-
-        if(countryRepository.getCountries() != null) {
-            countries = countryRepository.getCountries();
-            recyclerView.getAdapter().notifyDataSetChanged();
-        }
 
         fetchCountries();
+
+
+
 
         return binding.getRoot();
     }
@@ -94,13 +91,7 @@ public class HomeFragment extends Fragment {
                     List<Country> res = response.body();
 
                     countries = res;
-
-                    for(Country country:countries) {
-                        Log.i(TAG, "onResponse: "+country.getFlag());
-                        countryRepository.insertCountry(country);
-                    }
-
-                    recyclerView.getAdapter().notifyDataSetChanged();
+                    initRecyclerView();
 
                 }
                 binding.progressBar.setVisibility(View.INVISIBLE);

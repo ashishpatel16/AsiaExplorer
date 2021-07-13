@@ -1,6 +1,7 @@
 package com.ashish.asiaexplorer.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,9 @@ public class CountryRecyclerViewAdapter extends RecyclerView.Adapter<CountryRecy
 
     @Override
     public int getItemCount() {
+        Log.i("HomeFragment", "getItemCount: "+mList.size());
         return mList.size();
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

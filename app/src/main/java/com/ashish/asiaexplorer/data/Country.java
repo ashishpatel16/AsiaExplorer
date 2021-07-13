@@ -1,5 +1,6 @@
 package com.ashish.asiaexplorer.data;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
@@ -12,6 +13,7 @@ import com.google.gson.annotations.SerializedName;
 public class Country implements Serializable {
 
 	@PrimaryKey
+	@NonNull
 	@SerializedName("name")
 	private String name;
 
@@ -22,6 +24,7 @@ public class Country implements Serializable {
 	@SerializedName("languages")
 	private List<Language> languages;
 
+	@TypeConverters(BorderConverter.class)
 	@SerializedName("borders")
 	private List<String> borders;
 
@@ -67,5 +70,37 @@ public class Country implements Serializable {
 
 	public String getFlag(){
 		return flag;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setCapital(String capital) {
+		this.capital = capital;
+	}
+
+	public void setLanguages(List<Language> languages) {
+		this.languages = languages;
+	}
+
+	public void setBorders(List<String> borders) {
+		this.borders = borders;
+	}
+
+	public void setSubregion(String subregion) {
+		this.subregion = subregion;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public void setPopulation(int population) {
+		this.population = population;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 }

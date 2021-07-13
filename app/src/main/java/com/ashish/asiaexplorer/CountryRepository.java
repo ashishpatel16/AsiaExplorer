@@ -18,7 +18,8 @@ public class CountryRepository {
     public CountryRepository(Application application) {
         CountryDatabase db = CountryDatabase.getInstance(application);
         countryDao = db.countryDao();
-        countries = countryDao.getAllCountries();
+
+
     }
 
     public void insertCountry(Country country) {
