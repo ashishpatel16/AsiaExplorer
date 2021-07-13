@@ -23,9 +23,9 @@ import java.util.List;
 
 
 public class CountryRecyclerViewAdapter extends RecyclerView.Adapter<CountryRecyclerViewAdapter.ViewHolder> {
-    private Context mContext;
-    private List<Country> mList;
-    private NavController navController;
+    private final Context mContext;
+    private final List<Country> mList;
+    private final NavController navController;
     public CountryRecyclerViewAdapter(Context mContext, List<Country> mList, NavController navController) {
         this.mContext = mContext;
         this.mList = mList;
@@ -41,7 +41,7 @@ public class CountryRecyclerViewAdapter extends RecyclerView.Adapter<CountryRecy
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.mCoutry.setText(mList.get(position).getName());
+        holder.mCountry.setText(mList.get(position).getName());
         holder.mPopulation.setText(""+mList.get(position).getPopulation());
 
         holder.mLayout.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +69,7 @@ public class CountryRecyclerViewAdapter extends RecyclerView.Adapter<CountryRecy
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView mFlagImageView;
-        TextView mCoutry,mPopulation;
+        TextView mCountry,mPopulation;
         AppCompatImageButton btnMore;
         ConstraintLayout mLayout;
 
@@ -77,7 +77,7 @@ public class CountryRecyclerViewAdapter extends RecyclerView.Adapter<CountryRecy
             super(itemView);
 
             mFlagImageView = itemView.findViewById(R.id.iv_flag);
-            mCoutry = itemView.findViewById(R.id.tv_country);
+            mCountry = itemView.findViewById(R.id.tv_country);
             mPopulation = itemView.findViewById(R.id.tv_population);
             btnMore = itemView.findViewById(R.id.btn_view_more);
             mLayout = itemView.findViewById(R.id.row_layout);

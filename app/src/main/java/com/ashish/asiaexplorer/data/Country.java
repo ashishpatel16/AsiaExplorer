@@ -12,7 +12,17 @@ import com.google.gson.annotations.SerializedName;
 @Entity(tableName = "countries_table")
 public class Country implements Serializable {
 
-	@PrimaryKey
+	public void set_key(int _key) {
+		this._key = _key;
+	}
+
+	@PrimaryKey(autoGenerate = true)
+	private int _key;
+
+	public int get_key() {
+		return _key;
+	}
+
 	@NonNull
 	@SerializedName("name")
 	private String name;

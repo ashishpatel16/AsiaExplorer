@@ -9,12 +9,12 @@ import androidx.room.RoomDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Country.class}, version = 1)
+@Database(entities = {Country.class}, version = 2)
 public abstract class CountryDatabase extends RoomDatabase {
 
     private static CountryDatabase instance;
     public abstract CountryDao countryDao();
-    private static final int NUMBER_OF_THREADS = 4;
+    private static final int NUMBER_OF_THREADS = 40;
     public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public static synchronized CountryDatabase getInstance(Context context) {
